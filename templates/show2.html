@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User List</title>
+</head>
+<body>
+    <h1>All Users</h1>
+    <table border="1">
+        <tr><th>ID</th><th>Name</th><th>Email</th><th>Actions</th></tr>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>
+                <a href="/update/{{ user.id }}">Update</a> |
+                <a href="/delete/{{ user.id }}" onclick="return confirm('Delete this user?');">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="/add">Add New User</a>
+</body>
+</html>
